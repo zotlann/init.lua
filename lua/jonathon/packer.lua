@@ -25,8 +25,14 @@ return require('packer').startup(function(use)
   use('nvim-treesitter/playground')
   use('theprimeagen/harpoon')
   use('mbbill/undotree')
-  use('tpope/vim-fugitive')
   use('kovisoft/slimv')
+  use{'AlphaTechnolog/pywal.nvim', as = 'pywal' }
+  use({
+      "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+      config = function()
+          require("lsp_lines").setup()
+      end,
+  })
   use {
 	  'VonHeikemen/lsp-zero.nvim',
 	  requires = {
