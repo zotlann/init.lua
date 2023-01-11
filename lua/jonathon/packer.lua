@@ -34,6 +34,9 @@ return require('packer').startup(function(use)
           require("lsp_lines").setup()
       end,
   })
+  use('mfussenegger/nvim-dap')
+  use('jayp0521/mason-nvim-dap.nvim')
+  use('rcarriga/nvim-dap-ui')
   use {
 	  'VonHeikemen/lsp-zero.nvim',
 	  requires = {
