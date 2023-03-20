@@ -4,9 +4,6 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
   'clangd',
-  'bash-language-server',
-  'cmake-langauge-server',
-  'lua-language-server',
 })
 
 -- Fix Undefined global 'vim'

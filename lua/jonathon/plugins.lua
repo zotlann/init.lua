@@ -40,6 +40,7 @@ return require('lazy').setup({
 
   'nvim-treesitter/playground',
   'nvim-treesitter/nvim-treesitter-context',
+  'nvim-treesitter/nvim-treesitter-textobjects',
   'theprimeagen/harpoon',
   'mbbill/undotree',
   'kovisoft/slimv',
