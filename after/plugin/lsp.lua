@@ -1,4 +1,5 @@
 local lsp = require("lsp-zero")
+local lspconfig = require("lspconfig")
 
 lsp.preset("recommended")
 
@@ -17,6 +18,9 @@ lsp.configure('lua_ls', {
     }
 })
 
+lsp.configure('clangd', {
+  cmd = { 'clangd', '--background-index', '--clang-tidy', '--clang-tidy-checks="-*"','--compile-commands-dir=Build/Linux'},
+})
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
@@ -50,8 +54,8 @@ lsp.on_attach(function(client, bufnr)
       vim.cmd.LspStop('eslint')
       return
   end
-
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+  vim.keymap.set("n", "gi", vim.lsp.buf.declaration, opts)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
   vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
   vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
