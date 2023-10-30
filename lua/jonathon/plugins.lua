@@ -77,5 +77,6 @@ return require('lazy').setup({
             { 'rafamadriz/friendly-snippets' },
         }
     },
-    {'akinsho/git-conflict.nvim', version = "*", config = true}
+    {'akinsho/git-conflict.nvim', version = "*", config = true},
+	{ "catppuccin/nvim", name = "catppuccin"}
 })
