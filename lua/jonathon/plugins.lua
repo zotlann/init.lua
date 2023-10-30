@@ -77,5 +77,7 @@ return require('lazy').setup({
             { 'rafamadriz/friendly-snippets' },
         }
     },
-    {'akinsho/git-conflict.nvim', version = "*", config = true}
+    {'akinsho/git-conflict.nvim', version = "*", config = true},
+
+	{'zotlann/docker-nvim', dependencies = 'nvim-telescope/telescope.nvim'}
 })
