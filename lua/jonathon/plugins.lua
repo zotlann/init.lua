@@ -20,8 +20,7 @@ vim.g.maplocalleader = " "
 return require('lazy').setup({
 
     {
-        'nvim-telescope/telescope.nvim', version = '0.1.3',
-        -- or                            , branch = '0.1.x',
+        'nvim-telescope/telescope.nvim',
         dependencies = { { 'nvim-lua/plenary.nvim' } }
     },
 
@@ -79,5 +78,6 @@ return require('lazy').setup({
     },
     {'akinsho/git-conflict.nvim', version = "*", config = true},
 
-	{'zotlann/docker-nvim', dependencies = 'nvim-telescope/telescope.nvim'}
+	{'zotlann/docker-nvim', dependencies = 'nvim-telescope/telescope.nvim'},
+	{ "catppuccin/nvim", name = "catppuccin"}
 })
