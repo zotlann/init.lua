@@ -7,6 +7,8 @@ vim.keymap.set("n", "<leader>cp", docker.pick_conatiner)
 
 -- <leader>cb to run build
 vim.keymap.set("n", "<leader>cb", function() docker.do_job("bash -c 'source /usr/bin/pre_build_script.sh && ./cmakeBuild.sh -c -r -64 -b -j16 --deploy'") end)
+-- <leader>cd to run deploy
+vim.keymap.set("n", "<leader>cd", function() docker.do_job("bash -c 'source /usr/bin/pre_build_script.sh && ./dailyOutputCopy.sh -64'") end)
 -- <leader>cu to run unit tests
 vim.keymap.set("n", "<leader>cu", function() docker.do_job("bash -c 'source /usr/bin/pre_build_script.sh && ./runTests.sh -64 --stages unit'") end)
 -- <leader>ci to run integration tests

@@ -41,7 +41,6 @@ return require('lazy').setup({
     'nvim-treesitter/playground',
     'nvim-treesitter/nvim-treesitter-context',
     'nvim-treesitter/nvim-treesitter-textobjects',
-    'theprimeagen/harpoon',
     'mbbill/undotree',
     'kovisoft/slimv',
     { 'AlphaTechnolog/pywal.nvim', name = 'pywal' },
@@ -79,5 +78,6 @@ return require('lazy').setup({
     {'akinsho/git-conflict.nvim', version = "*", config = true},
 
 	{'zotlann/docker-nvim', dependencies = 'nvim-telescope/telescope.nvim'},
-	{ "catppuccin/nvim", name = "catppuccin"}
+	{ "catppuccin/nvim", name = "catppuccin"},
+	'natecraddock/workspaces.nvim',
 })

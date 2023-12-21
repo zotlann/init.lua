@@ -1,5 +1,8 @@
 local builtin = require('telescope.builtin')
 local telescope = require('telescope')
+
+telescope.load_extension("workspaces")
+
 telescope.setup {
     pickers = {
         find_files = {
