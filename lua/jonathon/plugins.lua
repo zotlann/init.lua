@@ -66,12 +66,12 @@ return require('lazy').setup({
             { 'hrsh7th/nvim-cmp' },
             { 'hrsh7th/cmp-buffer' },
             { 'hrsh7th/cmp-path' },
-            { 'saadparwaiz1/cmp_luasnip' },
+            --{ 'saadparwaiz1/cmp_luasnip' },
             { 'hrsh7th/cmp-nvim-lsp' },
             { 'hrsh7th/cmp-nvim-lua' },
 
             -- Snippets
-            { 'L3MON4D3/LuaSnip' },
+            -- { 'L3MON4D3/LuaSnip' },
             { 'rafamadriz/friendly-snippets' },
         }
     },
@@ -80,4 +80,12 @@ return require('lazy').setup({
 	{'zotlann/docker-nvim', dependencies = 'nvim-telescope/telescope.nvim'},
 	{ "catppuccin/nvim", name = "catppuccin"},
 	'natecraddock/workspaces.nvim',
+
+	{
+		"nvim-neotest/neotest",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"alfaix/neotest-gtest"
+		}
+	},
 })
