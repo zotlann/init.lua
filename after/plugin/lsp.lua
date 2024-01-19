@@ -1,11 +1,8 @@
 local lsp = require("lsp-zero")
 local lspconfig = require("lspconfig")
+local cmp = require('cmp')
 
 lsp.preset("recommended")
-
-lsp.ensure_installed({
-  'clangd',
-})
 
 -- Fix Undefined global 'vim'
 lsp.configure('lua_ls', {
@@ -34,7 +31,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 })
 
 
-lsp.setup_nvim_cmp({
+cmp.setup({
   mapping = cmp_mappings
 })
 
