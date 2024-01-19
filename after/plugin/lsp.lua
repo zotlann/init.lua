@@ -19,7 +19,7 @@ lsp.configure('lua_ls', {
 })
 
 lsp.configure('clangd', {
-  cmd = { 'clangd', '--background-index', '--clang-tidy', '--clang-tidy-checks="-*"','--compile-commands-dir=Build/Linux'},
+  cmd = { 'clangd', '--background-index', '--clang-tidy', '--clang-tidy-checks="-*"','--compile-commands-dir=Build'},
 })
 
 local cmp = require('cmp')
@@ -72,4 +72,10 @@ lsp.setup()
 vim.diagnostic.config({
     virtual_text = true,
 })
+
+
+lspconfig.grammarly.setup({
+	filetypes = { "markdown", "text" },
+	}
+)
 
