@@ -81,11 +81,12 @@ return require('lazy').setup({
 	{ "catppuccin/nvim", name = "catppuccin"},
 	'natecraddock/workspaces.nvim',
 
+	"alfaix/neotest-gtest",
 	{
 		"nvim-neotest/neotest",
+		"nvim-neotest/nvim-nio",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			"alfaix/neotest-gtest"
 		}
 	},
 })
