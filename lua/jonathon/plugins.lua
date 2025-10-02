@@ -32,28 +32,11 @@ return require('lazy').setup({
         end
     },
 
-    { 'nvim-treesitter/nvim-treesitter',
-        build = function()
-            pcall(require('nvim-treesitter.install').update { with_sync = true })
-        end,
-    },
-
-    'nvim-treesitter/playground',
-    'nvim-treesitter/nvim-treesitter-context',
-    'nvim-treesitter/nvim-treesitter-textobjects',
     'mbbill/undotree',
-    'kovisoft/slimv',
-    { 'AlphaTechnolog/pywal.nvim', name = 'pywal' },
-    {
-        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-        config = function()
-            require("lsp_lines").setup()
-        end,
-    },
     'mfussenegger/nvim-dap',
+	'nvim-neotest/nvim-nio',
     'jayp0521/mason-nvim-dap.nvim',
     'rcarriga/nvim-dap-ui',
-    'tpope/vim-fugitive',
     {
         'VonHeikemen/lsp-zero.nvim',
         dependencies = {
@@ -75,18 +58,19 @@ return require('lazy').setup({
             { 'rafamadriz/friendly-snippets' },
         }
     },
-    {'akinsho/git-conflict.nvim', version = "*", config = true},
 
-	{'zotlann/docker-nvim', dependencies = 'nvim-telescope/telescope.nvim'},
 	{ "catppuccin/nvim", name = "catppuccin"},
-	'natecraddock/workspaces.nvim',
-
-	"alfaix/neotest-gtest",
 	{
-		"nvim-neotest/neotest",
-		"nvim-neotest/nvim-nio",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
+		"seblyng/roslyn.nvim",
+		ft = "cs",
+		--@module 'roslyn.config'
+		--@type RoslynNvimConfig
+		opts = {
 		}
 	},
+	{"nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate"},
+	{
+		'github/copilot.vim'
+	}
+
 })

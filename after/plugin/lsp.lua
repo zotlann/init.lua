@@ -1,4 +1,3 @@
-local lspconfig = require("lspconfig")
 local cmp = require('cmp')
 local cmp_lsp = require('cmp_nvim_lsp')
 
@@ -22,7 +21,7 @@ local function on_attach(client, bufnr)
 		return
 	end
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-	vim.keymap.set("n", "gi", vim.lsp.buf.declaration, opts)
+	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 	vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
 	vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
@@ -50,19 +49,7 @@ vim.diagnostic.config({
 	virtual_text = true,
 })
 
-
-lspconfig.grammarly.setup({
-	filetypes = { "markdown", "text" },
-}
-)
-
-lspconfig.clangd.setup({
-	capabilities = capabilities,
-	cmd = { 'clangd', '--background-index', '--clang-tidy', '--clang-tidy-checks="-*"', '--compile-commands-dir=Build' },
-	on_attach = on_attach,
-})
-
-lspconfig.lua_ls.setup({
+vim.lsp.config('lua_ls', {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = {
@@ -75,13 +62,26 @@ lspconfig.lua_ls.setup({
 	},
 })
 
-require 'lspconfig'.rust_analyzer.setup {
+vim.lsp.config('ts_ls', {
 	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+vim.lsp.config('omnisharp', {
+	capabilities = capabilities,
+	on_attach = on_attach,
+	cmd = { 'omnisharp', '--languageserver', '--hostPID', tostring(vim.fn.getpid()) },
+	root_dir = function(filename)
+		return vim.fn.getcwd()
+	end,
 	settings = {
-		['rust-analyzer'] = {
-			diagnostics = {
-				enable = false,
-			}
-		}
-	}
-}
+		msbuild = {
+			WarningsAsErrors = false,
+		},
+	},
+})
+
+
+vim.lsp.enable('lua_ls')
+vim.lsp.enable('ts_ls')
+vim.lsp.enable('omnisharp')
