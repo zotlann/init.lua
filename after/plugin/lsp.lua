@@ -67,21 +67,7 @@ vim.lsp.config('ts_ls', {
 	on_attach = on_attach,
 })
 
-vim.lsp.config('omnisharp', {
-	capabilities = capabilities,
-	on_attach = on_attach,
-	cmd = { 'omnisharp', '--languageserver', '--hostPID', tostring(vim.fn.getpid()) },
-	root_dir = function(filename)
-		return vim.fn.getcwd()
-	end,
-	settings = {
-		msbuild = {
-			WarningsAsErrors = false,
-		},
-	},
-})
 
 
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('ts_ls')
-vim.lsp.enable('omnisharp')
