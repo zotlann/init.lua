@@ -60,17 +60,17 @@ return require('lazy').setup({
     },
 
 	{ "catppuccin/nvim", name = "catppuccin"},
-	{
-		"seblyng/roslyn.nvim",
-		ft = "cs",
-		--@module 'roslyn.config'
-		--@type RoslynNvimConfig
-		opts = {
-		}
-	},
 	{"nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate"},
 	{
 		'github/copilot.vim'
-	}
+	},
+	-- lazy.nvim
+	{
+	  "GustavEikaas/easy-dotnet.nvim",
+	  dependencies = { "nvim-lua/plenary.nvim", 'nvim-telescope/telescope.nvim', },
+	  config = function()
+	    require("easy-dotnet").setup()
+	  end
+	},
 
 })
